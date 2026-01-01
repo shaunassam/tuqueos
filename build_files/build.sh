@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y gnome-tweaks distrobox vim-enhanced samba fuse-sshfs gnome-shell-extension-dash-to-dock gnome-shell-extension-appindicator gnome-shell-extension-desktop-icons
+dnf5 install -y gnome-tweaks distrobox vim-enhanced samba fuse-sshfs gnome-shell-extension-dash-to-dock gnome-shell-extension-appindicator
 
 # Use a COPR Example:
 #
@@ -21,6 +21,8 @@ dnf5 install -y gnome-tweaks distrobox vim-enhanced samba fuse-sshfs gnome-shell
 
 dnf5 -y copr enable lilay/topgrade
 dnf5 -y install topgrade
+dnf5 -y copr enable sassam/tuqueOS
+dnf5 -y install gnome-shell-extension-logo-menu
 
 #### Example for enabling a System Unit File
 

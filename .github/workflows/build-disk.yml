@@ -78,14 +78,10 @@ jobs:
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - name: Build ISO
-        id: build
-        uses: ublue-os/bootc-image-builder-action@main
+        uses: ublue-os/titanoboa@main
         with:
-          bootc-image-builder-image: ghcr.io/centos-workstation/bootc-image-builder:latest
-          use-librepo: true
-          config-file: ./disk_config/iso.toml
-          image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}
-
+          image-ref: ghcr.io/shaunassam/tuqueos:latest
+    
       - name: Upload disk images and Checksum to Job Artifacts
         if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6

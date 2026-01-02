@@ -39,23 +39,26 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Build ISO
-        id: build
         uses: ublue-os/titanoboa@main
         with:
           image-ref: ghcr.io/shaunassam/tuqueos:latest
           flatpaks-list: ${{ github.workspace }}/flatpaks/system-flatpaks.list
-          compression: squashfs
+          kargs: ""
           builder-distro: fedora
+
+      - name: Rename and Checksum ISO
+        run: |
+          mkdir -p output
+          mv ${{ steps.build.outputs.iso-dest }} output/tuqueos.iso
+          (cd output && sha256sum tuqueos.iso | tee tuqueos.iso-CHECKSUM)
 
       - name: Upload disk images and Checksum to Job Artifacts
         if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
-          path: ${{ steps.build.outputs.output-directory }}
+          name: ${{ steps.image_ref.outputs.artifact_format }}
           if-no-files-found: error
-          retention-days: 0
-          compression-level: 0
-          overwrite: true
+          path: ${{ steps.rename.outputs.output_directory }}
       
       - name: Upload to CloudFlare
         if: inputs.upload-to-s3 == true && github.event_name != 'pull_request'
@@ -67,8 +70,8 @@ jobs:
           RCLONE_CONFIG_S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
           RCLONE_CONFIG_S3_REGION: auto
           RCLONE_CONFIG_S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
-          SOURCE_DIR: ${{ steps.build.outputs.output-directory }}
+          SOURCE_DIR: ${{ steps.rename.outputs.output_directory }}
         run: |
           sudo apt-get update
           sudo apt-get install -y rclone
-          rclone copy --log-level INFO $SOURCE_DIR R2:tuqueos
+          rclone copy --log-level INFO --checksum "${SOURCE_DIR}" R2:tuqueos

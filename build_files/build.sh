@@ -30,6 +30,8 @@ systemctl enable smb nmb
 #### Install Stable Kernel
 # /ctx/base/01-replace-kernel.sh
 
-# Install Overrides 
+#### Apply Overrides 
 /ctx/base/05-override-schemas.sh
 
+#### Clean up
+/ctx/base/09-cleanup.sh

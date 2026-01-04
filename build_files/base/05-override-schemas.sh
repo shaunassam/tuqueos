@@ -2,6 +2,8 @@
 
 set -eoux pipefail
 
+rsync -rvK /ctx/system_files/usr/share/backgrounds/ /usr/share/backgrounds/
+
 tee /usr/share/glib-2.0/schemas/zz1-tuqueos-desktop-modifications.gschema.override << EOF
 [org.gnome.desktop.background]
 picture-uri='file:///usr/share/backgrounds/true-north-day.jpg'

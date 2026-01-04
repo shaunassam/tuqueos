@@ -13,7 +13,7 @@ picture-uri-dark='file:///usr/share/backgrounds/true-north-night.jpg'
 allow-updates=false
 download-updates=false
 first-run=false
-packaging-format-preference=["flatpak:flathub", "flatpak", "rpm"]
+packaging-format-preference=["flatpak:flathub", "flatpak"]
 
 [org.gnome.shell]
 enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'just-perfection-desktop@just-perfection', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com']

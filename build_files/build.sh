@@ -13,7 +13,7 @@ set -ouex pipefail
 dnf5 install -y gnome-tweaks distrobox vim-enhanced samba fuse-sshfs \
   gnome-shell-extension-dash-to-dock gnome-shell-extension-just-perfection \
   gnome-shell-extension-appindicator \
-  vlc vlc-plugins-all ffmpeg-free libmad 
+  vlc vlc-plugins-all ffmpeg-free flac faad2 lame libmad
 
 # Use a COPR Example:
 #

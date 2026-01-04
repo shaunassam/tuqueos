@@ -13,7 +13,8 @@ COPY build_files /
 # Universal Blue Images: https://github.com/orgs/ublue-os/packages
 # Fedora base image: quay.io/fedora/fedora-bootc:41
 # CentOS base images: quay.io/centos-bootc/centos-bootc:stream10
-FROM quay.io/fedora/fedora-silverblue:43
+# FROM quay.io/fedora/fedora-silverblue:43
+FROM quay.io/fedora/fedora-coreos:stable
 
 ### [IM]MUTABLE /opt
 ## Some bootable images, like Fedora, have /opt symlinked to /var/opt, in order to

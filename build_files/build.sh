@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y gnome-tweaks distrobox vim-enhanced samba fuse-sshfs \
+dnf5 install -y gnome-tweaks distrobox flatpak vim-enhanced samba fuse-sshfs \
   gnome-shell-extension-dash-to-dock gnome-shell-extension-just-perfection \
   gnome-shell-extension-appindicator \
   vlc vlc-plugins-all ffmpeg-free flac faad2 lame libmad

@@ -61,13 +61,16 @@ jobs:
         uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3
 
       - name: Build ISO
+        uses: jasonn3/build-container-installer@main
         id: build
-        uses: ublue-os/titanoboa@main
         with:
-          image-ref: ghcr.io/shaunassam/tuqueos:latest
-          flatpaks-list: ${{ github.workspace }}/flatpaks/system-flatpaks.list
-          kargs: ""
-          builder-distro: fedora
+          arch: ${{ env.ARCH}}
+          image_name: ${{ env.IMAGE_NAME}}
+          image_repo: ${{ env.IMAGE_REPO}}
+          image_tag: ${{ env.IMAGE_TAG }}
+          version: ${{ env.VERSION }}
+          variant: ${{ env.VARIANT }}
+          iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
 
       - name: Rename and Checksum ISO
         run: |

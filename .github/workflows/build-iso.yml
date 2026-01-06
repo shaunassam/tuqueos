@@ -71,20 +71,20 @@ jobs:
           variant: Server
           version: 42
           web_ui: true
-          iso_name: boot.iso
+          iso_name: tuqueos.iso
 
-      - name: Rename and Checksum ISO
-        run: |
-          mkdir -p output
-          mv ${{ steps.build.outputs.iso-dest }} output/tuqueos.iso
-          (cd output && sha256sum tuqueos.iso | tee tuqueos.iso-CHECKSUM)
+      # - name: Rename and Checksum ISO
+        #run: |
+          #mkdir -p output
+          #mv ${{ steps.build.outputs.iso-dest }} output/tuqueos.iso
+          #(cd output && sha256sum tuqueos.iso | tee tuqueos.iso-CHECKSUM)
 
       - name: Upload ISOs and Checksum to Job Artifacts
         if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: tuqueos
-          path: output
+          #path: output
           if-no-files-found: error
           retention-days: 3
           compression-level: 0

@@ -4,7 +4,7 @@ set -eoux pipefail
 
 rsync -rvK /ctx/system_files/usr/share/backgrounds/ /usr/share/backgrounds/
 
-tee /usr/share/glib-2.0/schemas/zz1-tuqueos-desktop-modifications.gschema.override << EOF
+tee /etc/dconf/db/local.d/01-tuqueos-defaults << EOF
 [org.gnome.desktop.background]
 picture-uri='file:///usr/share/backgrounds/jasper.jpg'
 picture-uri-dark='file:///usr/share/backgrounds/jasper.jpg'
@@ -148,4 +148,4 @@ sort-directories-first=true
 clock-format='12h'
 EOF
 
-glib-compile-schemas /usr/share/glib-2.0/schemas/
+dconf update

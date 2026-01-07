@@ -4,9 +4,6 @@ set -ouex pipefail
 
 ### Install packages
 
-# Remove unwanted packages
-dnf5 remove -y gnome-extensions-app
-
 # Adding Fedora Workstation and additional packages
 dnf5 install -y gnome-tweaks distrobox podman vim-enhanced samba fuse-sshfs \
   gnome-shell-extension-dash-to-dock gnome-shell-extension-just-perfection gnome-shell-extension-appindicator \

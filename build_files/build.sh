@@ -15,7 +15,7 @@ dnf5 -y copr enable sassam/tuqueOS
 dnf5 -y install gnome-shell-extension-logo-menu
 
 #### Apply Flatpaks
-/ctx/base/04-flatpaks.sh
+#/ctx/base/04-flatpaks.sh
 
 #### Apply Overrides 
 /ctx/base/08-override-schemas.sh

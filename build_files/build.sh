@@ -2,20 +2,16 @@
 
 set -ouex pipefail
 
-### Install packages
+#### Enable repos
+/ctx/base/01-enable-repos.sh
 
-# Adding Fedora Workstation and additional packages
-dnf5 install -y gnome-tweaks distrobox podman vim-enhanced samba fuse-sshfs \
-  gnome-shell-extension-dash-to-dock gnome-shell-extension-just-perfection gnome-shell-extension-appindicator \
-  gnome-shell-extension-apps-menu gnome-shell-extension-places-menu \
-  ffmpeg-free flac faad2 lame libmad
-
-# Enable COPRs & install respective packages:
-dnf5 -y copr enable sassam/tuqueOS
-dnf5 -y install gnome-shell-extension-logo-menu
+#### Install packages
+#/ctx/base/02-system-packages.sh
+#/ctx/base/99-coreos-desktop.sh
+/ctx/base/98-silverblue.sh
 
 #### Apply Flatpaks
-#/ctx/base/04-flatpaks.sh
+/ctx/base/04-flatpaks.sh
 
 #### Apply Overrides 
 /ctx/base/08-override-schemas.sh

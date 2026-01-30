@@ -11,6 +11,12 @@ tee /etc/dconf/db/local.d/01-tuqueos-defaults << EOF
 picture-uri='file:///usr/share/backgrounds/jasper.jpg'
 picture-uri-dark='file:///usr/share/backgrounds/jasper.jpg'
 
+[org/gnome/Chess]
+height=550
+last-played-as='white'
+maximized=false
+width=700
+
 [org/gnome/Ptyxis]
 default-columns=uint32 86
 default-profile-uuid='9559f421ac4e8a13a3e958c2695b07f2'
@@ -22,8 +28,22 @@ restore-window-size=false
 use-system-font=false
 window-size=(uint32 86, uint32 24)
 
+[org/gnome/TextEditor]
+show-line-numbers=true
+
+[org/gnome/Weather]
+locations=[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]
+window-height=506
+window-maximized=false
+window-width=587
+
+[org/gnome/calendar]
+active-view='month'
+window-maximized=true
+window-size=(768, 600)
+
 [org/gnome/control-center]
-last-panel='background'
+last-panel='power'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/app-folders]
@@ -71,7 +91,10 @@ enable-animations=true
 enable-hot-corners=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-ptyxis', 'org-gnome-software', 'gnome-power-panel', 'gnome-about-panel', 'org-gnome-characters', 'org-gnome-nautilus']
+application-children=['org-gnome-ptyxis', 'org-gnome-software', 'gnome-power-panel', 'gnome-about-panel', 'org-gnome-characters', 'org-gnome-nautilus', 'org-gnome-rhythmbox3', 'org-mozilla-firefox', 'org-gnome-texteditor', 'com-mattjakeman-extensionmanager']
+
+[org/gnome/desktop/notifications/application/com-mattjakeman-extensionmanager]
+application-id='com.mattjakeman.ExtensionManager.desktop'
 
 [org/gnome/desktop/notifications/application/gnome-about-panel]
 application-id='gnome-about-panel.desktop'
@@ -88,8 +111,17 @@ application-id='org.gnome.Nautilus.desktop'
 [org/gnome/desktop/notifications/application/org-gnome-ptyxis]
 application-id='org.gnome.Ptyxis.desktop'
 
+[org/gnome/desktop/notifications/application/org-gnome-rhythmbox3]
+application-id='org.gnome.Rhythmbox3.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-texteditor]
+application-id='org.gnome.TextEditor.desktop'
+
+[org/gnome/desktop/notifications/application/org-mozilla-firefox]
+application-id='org.mozilla.firefox.desktop'
 
 [org/gnome/desktop/privacy]
 report-technical-problems=false
@@ -118,6 +150,13 @@ col-26-width=0
 enable-fingerprint-authentication=false
 enable-smartcard-authentication=false
 
+[org/gnome/maps]
+last-viewed-location=[0.0, 0.0]
+map-type='MapsVectorSource'
+transportation-type='pedestrian'
+window-maximized=true
+zoom-level=2
+
 [org/gnome/nautilus/icon-view]
 default-zoom-level='small-plus'
 
@@ -137,6 +176,29 @@ ignore-phase2-ca-cert=false
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
+[org/gnome/rhythmbox]
+position=(26, 23)
+size=(1104, 700)
+
+[org/gnome/rhythmbox/player]
+volume=1.0
+
+[org/gnome/rhythmbox/plugins]
+active-plugins=['rb', 'power-manager', 'notification', 'mtpdevice', 'mpris', 'iradio', 'ipod', 'generic-player', 'dbus-media-server', 'cd-recorder', 'audioscrobbler', 'audiocd', 'android', 'artsearch']
+seen-plugins=['rb', 'webremote', 'replaygain', 'rbzeitgeist', 'pythonconsole', 'notification', 'mtpdevice', 'ipod', 'grilo', 'fmradio', 'dbus-media-server', 'daap', 'cd-recorder', 'audioscrobbler', 'artsearch', 'im-status', 'listenbrainz', 'lyrics', 'magnatune']
+
+[org/gnome/rhythmbox/plugins/audioscrobbler/Last.fm]
+scrobbling-enabled=true
+
+[org/gnome/rhythmbox/plugins/audioscrobbler/Libre.fm]
+scrobbling-enabled=true
+
+[org/gnome/rhythmbox/plugins/iradio]
+initial-stations-loaded=true
+
+[org/gnome/rhythmbox/rhythmdb]
+locations=['file:///var/home/student/Music']
+
 [org/gnome/settings-daemon/plugins/color]
 night-light-schedule-automatic=false
 
@@ -149,6 +211,7 @@ sleep-inactive-ac-type='nothing'
 
 [org/gnome/shell]
 app-picker-layout=[{'org.gnome.Extensions.desktop': <{'position': <0>}>, 'org.gnome.Yelp.desktop': <{'position': <1>}>, 'org.gnome.TextEditor.desktop': <{'position': <2>}>, 'System': <{'position': <3>}>, 'org.gnome.Tour.desktop': <{'position': <4>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <5>}>, 'org.gnome.tweaks.desktop': <{'position': <6>}>}]
+disabled-extensions=@as []
 enabled-extensions=['logomenu@aryan_k', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'just-perfection-desktop@just-perfection', 'blur-my-shell@aunetx', 'BringOutSubmenuOfPowerOffLogoutButton@pratap.fastmail.fm', 'ding@rastersoft.com']
 favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'org.mozilla.firefox.desktop', 'net.thunderbird.Thunderbird.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Maps.desktop', 'org.gnome.Loupe.desktop', 'org.gnome.Rhythmbox3.desktop', 'vlc.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop']
 last-selected-power-profile='performance'
@@ -231,16 +294,20 @@ show-apps-button=true
 startup-status=0
 workspace-switcher-should-show=false
 
+[org/gnome/shell/weather]
+automatic-location=true
+locations=[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]
+
 [org/gnome/shell/world-clocks]
 locations=@av []
 
 [org/gnome/software]
 allow-updates=true
-check-timestamp=int64 1769660670
+check-timestamp=int64 1769773581
 download-updates=true
 download-updates-notify=true
 first-run=false
-flatpak-purge-timestamp=int64 1767591689
+flatpak-purge-timestamp=int64 1769740922
 update-notification-timestamp=int64 1767573812
 
 [org/gnome/system/location]

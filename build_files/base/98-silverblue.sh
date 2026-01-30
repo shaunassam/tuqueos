@@ -42,6 +42,7 @@ dnf5 install -y \
     gnome-shell-extension-blur-my-shell \
     gnome-shell-extension-logo-menu \
     gnome-shell-extension-desktop-icons-ng \
+    gnome-shell-extension-submenu-power-toggle \
     vlc \
     vlc-plugins-all \
     rhythmbox \

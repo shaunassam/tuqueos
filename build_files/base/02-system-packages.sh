@@ -30,6 +30,8 @@ dnf5 install -y \
     gnome-shell-extension-just-perfection \
     gnome-shell-extension-appindicator \
     gnome-shell-extension-blur-my-shell \
+    gnome-shell-extension-submenu-power-toggle \
+    gnome-shell-extension-desktop-icons-ng \
     plymouth \
     plymouth-system-theme \
     fwupd \
